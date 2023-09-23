@@ -4,11 +4,18 @@ konzolos PHP szkriptek futtatásához.
 
 ## TLDR;
 
-Build, Alias és Futtatás
+### Futtatás konténerben
+
+```bash
+make
+docker run --rm -v "$(pwd):/app" -it --entrypoint /bin/bash rcsnjszg/php-cli
+```
+
+### Build, Alias és Futtatás
 
 ```bash
 docker build -t rcsnjszg/php-cli -f Dockerfile  .
-alias php="docker run --rm -v $(pwd):/app rcsnjszg/php-cli"
+alias php='docker run --rm -v "$(pwd):/app" rcsnjszg/php-cli'
 php a.php
 ```
 
